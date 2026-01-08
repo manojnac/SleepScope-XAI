@@ -2,7 +2,7 @@ services:
   - type: web
     name: sleepscope-xai
     env:  python
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install -r SleepScope/SS_backend-main/SS_backend-main/requirements.txt
     startCommand: streamlit run SleepScope/SS_backend-main/SS_backend-main/streamlit_app.py --server.port=$PORT --server.address=0.0.0.0 --server.headless=true
     envVars:
       - key:  PYTHON_VERSION
