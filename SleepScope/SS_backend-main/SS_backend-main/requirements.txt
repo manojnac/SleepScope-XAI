@@ -14,3 +14,4 @@ firebase-admin
 google-cloud-firestore
 shap
 matplotlib
+ipython
