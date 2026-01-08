@@ -1326,28 +1326,34 @@ def load_subtype_pipeline():
 
 def get_firestore_client():
     """
-    Load Firestore using a service account JSON file.
-    Works both locally and on Render.
+    Load Firestore using environment variable or service account file.
     """
     try:
-        cred_path = os.path.join("credentials", "serviceAccount.json")
-
-        if not os.path.exists(cred_path):
-            st.error(f"Service account file not found at: {cred_path}")
-            return None
-
-        credentials = service_account.Credentials.from_service_account_file(
-            cred_path
-        )
-
-        client = firestore.Client(
-            project=credentials.project_id,
-            credentials=credentials
-        )
-
-        return client
-
-    except Exception as e:
+        if os.environ.get("FIREBASE_CREDENTIALS"):
+            # Running on Render
+            cred_dict = json. loads(os.environ["FIREBASE_CREDENTIALS"])
+            cred = credentials.Certificate(cred_dict)
+            
+            if not firebase_admin._apps:
+                firebase_admin.initialize_app(cred)
+            
+            client = firestore.client()
+            return client
+        else:
+            # Running locally
+            cred_path = os.path.join("credentials", "serviceAccount.json")
+            if not os.path. exists(cred_path):
+                st.error(f"Service account file not found at: {cred_path}")
+                return None
+                
+            cred = credentials.Certificate(cred_path)
+            if not firebase_admin._apps:
+                firebase_admin.initialize_app(cred)
+                
+            client = firestore.client()
+            return client
+            
+    except Exception as e: 
         st.error(f"Could not connect to Firestore: {e}")
         return None
 
