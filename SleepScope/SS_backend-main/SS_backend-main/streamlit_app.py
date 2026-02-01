@@ -1094,99 +1094,137 @@ st.markdown(
         font-family: 'Inter', sans-serif;
     }
     
-    /* Main container */
+    /* Main container with subtle gradient mesh background */
     .main {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #F7F9FC 0%, #E8EAF6 50%, #F5F7FA 100%);
         padding: 2rem;
+        animation: fadeIn 0.6s ease-in;
     }
     
-    /* Title Styling */
+    @keyframes fadeIn {
+        from { opacity: 0; }
+        to { opacity: 1; }
+    }
+    
+    /* Title Styling with animated gradient */
     .big-title {
-        font-size: 3.5rem;
+        font-size: 3rem;
         font-weight: 800;
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
         background-clip: text;
         margin-bottom: 0.5rem;
-        letter-spacing: -1px;
+        letter-spacing: -0.02em;
         text-align: center;
+        animation: gradientShift 3s ease infinite;
+        background-size: 200% 200%;
+    }
+    
+    @keyframes gradientShift {
+        0%, 100% { background-position: 0% 50%; }
+        50% { background-position: 100% 50%; }
     }
     
     .subtitle {
-        font-size: 1.2rem;
-        color: #6c757d;
-        margin-bottom: 2rem;
+        font-size: 1rem;
+        color: #718096;
+        margin-bottom: 3rem;
         text-align: center;
         font-weight: 400;
+        line-height: 1.6;
     }
     
-    /* Card Styling */
+    /* Glassmorphism Card Styling */
     .stContainer {
-        background: white;
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255, 255, 255, 0.18);
         border-radius: 16px;
         padding: 2rem;
-        box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
         margin-bottom: 1.5rem;
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
     
     .stContainer:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 15px 50px rgba(0,0,0,0.15);
+        transform: translateY(-4px);
+        box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
     }
     
-    /* Button Styling */
+    /* Modern Button Styling with pill shape */
     .stButton>button {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
         color: white;
         border: none;
-        border-radius: 12px;
+        border-radius: 24px;
         padding: 0.75rem 2rem;
-        font-size: 1.1rem;
+        font-size: 1rem;
         font-weight: 600;
-        transition: all 0.3s ease;
-        box-shadow: 0 4px 15px rgba(102, 126, 234, 0.4);
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        box-shadow: 0 4px 15px rgba(139, 126, 200, 0.3);
         width: 100%;
+        cursor: pointer;
     }
     
     .stButton>button:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 6px 20px rgba(102, 126, 234, 0.6);
+        transform: scale(1.02) translateY(-2px);
+        box-shadow: 0 8px 25px rgba(139, 126, 200, 0.5);
+        background: linear-gradient(135deg, #9C8DD7 0%, #5BA0F2 100%);
+    }
+    
+    .stButton>button:active {
+        transform: scale(0.98);
     }
     
     /* Metric Styling */
     .stMetric {
-        background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+        background: rgba(255, 255, 255, 0.8);
+        backdrop-filter: blur(10px);
         padding: 1.5rem;
-        border-radius: 12px;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.07);
+        border-radius: 16px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        border: 1px solid rgba(139, 126, 200, 0.1);
+        transition: all 0.3s ease;
     }
     
-    /* Tabs Styling */
+    .stMetric:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
+    }
+    
+    /* Modern Tabs Styling with pill shape */
     .stTabs [data-baseweb="tab-list"] {
-        gap: 8px;
-        background-color: #f8f9fa;
-        border-radius: 12px;
-        padding: 0.5rem;
+        gap: 12px;
+        background-color: #FFFFFF;
+        border-radius: 24px;
+        padding: 8px;
         justify-content: center;
+        box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
     }
     
     .stTabs [data-baseweb="tab"] {
-        border-radius: 8px;
-        color: #495057;
+        border-radius: 20px;
+        color: #718096;
         font-weight: 600;
-        padding: 0.75rem 1.5rem;
-        transition: all 0.3s ease;
-        font-size: 1.1rem;
+        padding: 12px 24px;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        font-size: 1rem;
+        border: none;
+    }
+    
+    .stTabs [data-baseweb="tab"]:hover {
+        background-color: #F5F7FA;
+        color: #4A90E2;
     }
     
     .stTabs [aria-selected="true"] {
-        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
         color: white;
+        box-shadow: 0 4px 12px rgba(139, 126, 200, 0.3);
     }
     
-    /* Remove the orange underline indicator */
+    /* Remove the default underline indicator */
     .stTabs [data-baseweb="tab-highlight"] {
         background-color: transparent;
     }
@@ -1195,65 +1233,207 @@ st.markdown(
         background-color: transparent;
     }
     
-    /* Info/Success/Warning boxes */
+    /* Enhanced Alert boxes with modern styling */
     .stAlert {
         border-radius: 12px;
         border-left: 4px solid;
         padding: 1rem 1.5rem;
+        backdrop-filter: blur(10px);
+        animation: slideIn 0.4s ease;
     }
     
-    /* Select slider styling */
+    @keyframes slideIn {
+        from {
+            opacity: 0;
+            transform: translateX(-10px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+    
+    /* Select slider styling with better visual feedback */
     .stSlider {
         padding: 1rem 0;
     }
     
-    /* Subheader styling */
-    h2, h3 {
-        color: #2d3748;
+    .stSlider > div > div > div {
+        background-color: #E8EAF6;
+    }
+    
+    .stSlider > div > div > div > div {
+        background-color: #8B7EC8;
+    }
+    
+    /* Improved heading hierarchy */
+    h1 {
+        font-size: 2.25rem;
         font-weight: 700;
+        color: #1A2332;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        margin-bottom: 1rem;
+    }
+    
+    h2 {
+        font-size: 1.75rem;
+        font-weight: 600;
+        color: #2D3748;
+        line-height: 1.3;
         margin-top: 2rem;
         margin-bottom: 1rem;
     }
     
-    /* Input field styling */
+    h3 {
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #2D3748;
+        line-height: 1.4;
+        margin-top: 1.5rem;
+        margin-bottom: 0.75rem;
+    }
+    
+    h4 {
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: #4A5568;
+        margin-top: 1rem;
+        margin-bottom: 0.5rem;
+    }
+    
+    /* Body text styling */
+    p {
+        color: #4A5568;
+        line-height: 1.6;
+        font-size: 1rem;
+    }
+    
+    /* Enhanced Input field styling with smooth focus states */
     .stNumberInput>div>div>input,
-    .stSelectbox>div>div>select {
-        border-radius: 8px;
-        border: 2px solid #e2e8f0;
-        padding: 0.5rem;
-        transition: border-color 0.3s ease;
+    .stSelectbox>div>div>select,
+    .stTextInput>div>div>input {
+        border-radius: 12px;
+        border: 1px solid #E2E8F0;
+        padding: 0.75rem 1rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: #FFFFFF;
+        font-size: 1rem;
     }
     
     .stNumberInput>div>div>input:focus,
-    .stSelectbox>div>div>select:focus {
-        border-color: #667eea;
-        box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    .stSelectbox>div>div>select:focus,
+    .stTextInput>div>div>input:focus {
+        border-color: #8B7EC8;
+        box-shadow: 0 0 0 3px rgba(139, 126, 200, 0.1);
+        outline: none;
     }
     
-    /* File uploader styling */
+    .stNumberInput>div>div>input:hover,
+    .stSelectbox>div>div>select:hover,
+    .stTextInput>div>div>input:hover {
+        border-color: #CBD5E0;
+    }
+    
+    /* Elegant File uploader styling */
     .stFileUploader {
-        border: 2px dashed #cbd5e0;
-        border-radius: 12px;
-        padding: 2rem;
-        transition: border-color 0.3s ease;
+        border: 2px dashed #CBD5E0;
+        border-radius: 16px;
+        padding: 2.5rem;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        background-color: rgba(255, 255, 255, 0.5);
+        text-align: center;
     }
     
     .stFileUploader:hover {
-        border-color: #667eea;
+        border-color: #8B7EC8;
+        background-color: rgba(139, 126, 200, 0.02);
+        transform: translateY(-2px);
     }
     
     /* Markdown content styling */
     .markdown-text-container {
-        color: #4a5568;
+        color: #4A5568;
         line-height: 1.7;
     }
     
-    /* Section divider */
+    /* Elegant section divider */
     hr {
         border: none;
         height: 2px;
-        background: linear-gradient(90deg, transparent, #667eea, transparent);
-        margin: 2rem 0;
+        background: linear-gradient(90deg, transparent, #8B7EC8, #4A90E2, transparent);
+        margin: 3rem 0;
+        opacity: 0.6;
+    }
+    
+    /* Success state styling */
+    .stSuccess {
+        background-color: rgba(72, 187, 120, 0.1);
+        border-left-color: #48BB78;
+    }
+    
+    /* Warning state styling */
+    .stWarning {
+        background-color: rgba(237, 137, 54, 0.1);
+        border-left-color: #ED8936;
+    }
+    
+    /* Error state styling */
+    .stError {
+        background-color: rgba(245, 101, 101, 0.1);
+        border-left-color: #F56565;
+    }
+    
+    /* Info state styling */
+    .stInfo {
+        background-color: rgba(66, 153, 225, 0.1);
+        border-left-color: #4299E1;
+    }
+    
+    /* Data table styling */
+    .stDataFrame {
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    }
+    
+    /* Spinner/loading state */
+    .stSpinner > div {
+        border-top-color: #8B7EC8 !important;
+    }
+    
+    /* Expander styling */
+    .streamlit-expanderHeader {
+        background-color: rgba(255, 255, 255, 0.8);
+        border-radius: 12px;
+        padding: 1rem;
+        font-weight: 600;
+        color: #2D3748;
+        transition: all 0.3s ease;
+    }
+    
+    .streamlit-expanderHeader:hover {
+        background-color: rgba(139, 126, 200, 0.1);
+    }
+    
+    /* Scrollbar styling */
+    ::-webkit-scrollbar {
+        width: 10px;
+        height: 10px;
+    }
+    
+    ::-webkit-scrollbar-track {
+        background: #F7F9FC;
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb {
+        background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
+        border-radius: 10px;
+    }
+    
+    ::-webkit-scrollbar-thumb:hover {
+        background: linear-gradient(135deg, #9C8DD7 0%, #5BA0F2 100%);
     }
     </style>
     """,
@@ -1503,94 +1683,238 @@ tabs = st.tabs(
 with tabs[0]:
     st.markdown("<br>", unsafe_allow_html=True)
     
-    # Hero section
+    # Enhanced Hero section with animated gradient text
     st.markdown("""
-        <div style='text-align: center; padding: 2rem 0;'>
-            <h1 style='font-size: 2.5rem; color: #2d3748; margin-bottom: 1rem;'>
+        <div style='text-align: center; padding: 3rem 0 2rem 0; animation: fadeIn 0.8s ease-in;'>
+            <h1 style='font-size: 3rem; 
+                       font-weight: 800;
+                       background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
+                       -webkit-background-clip: text;
+                       -webkit-text-fill-color: transparent;
+                       margin-bottom: 1.5rem;
+                       letter-spacing: -0.02em;
+                       line-height: 1.2;'>
                 Welcome to SleepScope
             </h1>
-            <p style='font-size: 1.2rem; color: #718096; max-width: 800px; margin: 0 auto;'>
-                An advanced explainable ML framework for comprehensive insomnia analysis
+            <p style='font-size: 1.25rem; 
+                      color: #718096; 
+                      max-width: 700px; 
+                      margin: 0 auto;
+                      line-height: 1.6;
+                      font-weight: 400;'>
+                An advanced explainable ML framework for comprehensive insomnia analysis and clinical decision support
             </p>
         </div>
     """, unsafe_allow_html=True)
     
     st.markdown("<hr>", unsafe_allow_html=True)
     
-    # Feature cards in columns
-    col1, col2, col3 = st.columns(3)
+    # Enhanced Feature cards with glassmorphism effect
+    col1, col2, col3 = st.columns(3, gap="large")
     
     with col1:
         st.markdown("""
-            <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                        padding: 2rem; border-radius: 16px; color: white; text-align: center;
-                        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);'>
-                <div style='width: 60px; height: 60px; background: rgba(255,255,255,0.2); 
-                            border-radius: 50%; margin: 0 auto 1rem; display: flex; 
-                            align-items: center; justify-content: center; font-size: 1.5rem;'>
-                    <strong>ISI</strong>
+            <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%); 
+                        padding: 2.5rem; 
+                        border-radius: 20px; 
+                        color: white; 
+                        text-align: center;
+                        box-shadow: 0 8px 32px rgba(139, 126, 200, 0.3);
+                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        cursor: default;'
+                 onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(139, 126, 200, 0.4)'"
+                 onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(139, 126, 200, 0.3)'">
+                <div style='width: 70px; 
+                            height: 70px; 
+                            background: rgba(255,255,255,0.25); 
+                            backdrop-filter: blur(10px);
+                            border-radius: 50%; 
+                            margin: 0 auto 1.5rem; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            font-size: 2rem;
+                            font-weight: 700;
+                            border: 2px solid rgba(255,255,255,0.3);'>
+                    💤
                 </div>
-                <h3 style='color: white; margin: 1rem 0 0.5rem 0;'>Severity Estimation</h3>
-                <p style='color: rgba(255,255,255,0.9); font-size: 0.95rem;'>
-                    ISI-based insomnia severity classification
+                <h3 style='color: white; margin: 0 0 0.75rem 0; font-size: 1.5rem; font-weight: 700;'>Severity Analysis</h3>
+                <p style='color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.5; margin: 0;'>
+                    Clinical-grade ISI assessment with severity classification
                 </p>
             </div>
         """, unsafe_allow_html=True)
     
     with col2:
         st.markdown("""
-            <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                        padding: 2rem; border-radius: 16px; color: white; text-align: center;
-                        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);'>
-                <div style='width: 60px; height: 60px; background: rgba(255,255,255,0.2); 
-                            border-radius: 50%; margin: 0 auto 1rem; display: flex; 
-                            align-items: center; justify-content: center; font-size: 1.5rem;'>
-                    <strong>ML</strong>
+            <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%); 
+                        padding: 2.5rem; 
+                        border-radius: 20px; 
+                        color: white; 
+                        text-align: center;
+                        box-shadow: 0 8px 32px rgba(139, 126, 200, 0.3);
+                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        cursor: default;'
+                 onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(139, 126, 200, 0.4)'"
+                 onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(139, 126, 200, 0.3)'">
+                <div style='width: 70px; 
+                            height: 70px; 
+                            background: rgba(255,255,255,0.25); 
+                            backdrop-filter: blur(10px);
+                            border-radius: 50%; 
+                            margin: 0 auto 1.5rem; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            font-size: 2rem;
+                            font-weight: 700;
+                            border: 2px solid rgba(255,255,255,0.3);'>
+                    🧠
                 </div>
-                <h3 style='color: white; margin: 1rem 0 0.5rem 0;'>Subtype Analysis</h3>
-                <p style='color: rgba(255,255,255,0.9); font-size: 0.95rem;'>
-                    ML-powered insomnia subtype classification
+                <h3 style='color: white; margin: 0 0 0.75rem 0; font-size: 1.5rem; font-weight: 700;'>ML Subtyping</h3>
+                <p style='color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.5; margin: 0;'>
+                    Advanced machine learning for precise subtype classification
                 </p>
             </div>
         """, unsafe_allow_html=True)
     
     with col3:
         st.markdown("""
-            <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                        padding: 2rem; border-radius: 16px; color: white; text-align: center;
-                        box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);'>
-                <div style='width: 60px; height: 60px; background: rgba(255,255,255,0.2); 
-                            border-radius: 50%; margin: 0 auto 1rem; display: flex; 
-                            align-items: center; justify-content: center; font-size: 1.5rem;'>
-                    <strong>r</strong>
+            <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%); 
+                        padding: 2.5rem; 
+                        border-radius: 20px; 
+                        color: white; 
+                        text-align: center;
+                        box-shadow: 0 8px 32px rgba(139, 126, 200, 0.3);
+                        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                        cursor: default;'
+                 onmouseover="this.style.transform='translateY(-8px) scale(1.02)'; this.style.boxShadow='0 12px 40px rgba(139, 126, 200, 0.4)'"
+                 onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 8px 32px rgba(139, 126, 200, 0.3)'">
+                <div style='width: 70px; 
+                            height: 70px; 
+                            background: rgba(255,255,255,0.25); 
+                            backdrop-filter: blur(10px);
+                            border-radius: 50%; 
+                            margin: 0 auto 1.5rem; 
+                            display: flex; 
+                            align-items: center; 
+                            justify-content: center; 
+                            font-size: 2rem;
+                            font-weight: 700;
+                            border: 2px solid rgba(255,255,255,0.3);'>
+                    📊
                 </div>
-                <h3 style='color: white; margin: 1rem 0 0.5rem 0;'>Correlation Insights</h3>
-                <p style='color: rgba(255,255,255,0.9); font-size: 0.95rem;'>
-                    ISI-PHQ9 depression correlation analysis
+                <h3 style='color: white; margin: 0 0 0.75rem 0; font-size: 1.5rem; font-weight: 700;'>Correlation Insights</h3>
+                <p style='color: rgba(255,255,255,0.95); font-size: 1rem; line-height: 1.5; margin: 0;'>
+                    Real-time ISI-PHQ9 depression correlation analytics
                 </p>
             </div>
         """, unsafe_allow_html=True)
 
     st.markdown("<br><br>", unsafe_allow_html=True)
 
-    # Main content
+    # Enhanced Main content with better styling
     with st.container():
-        st.markdown("### What is SleepScope?")
-        st.write(
-            """
-            **SleepScope** is an advanced explainable machine learning framework that provides:
-
-            - **Comprehensive Assessment**: Multi-dimensional evaluation combining ISI scores, 
-              PHQ-9 depression metrics, and optional polysomnography data
-            - **ML-Driven Insights**: State-of-the-art models for accurate subtype classification
-            - **Clinical Utility**: Designed for both patient self-assessment and clinical decision support
-            - **Explainable AI**: Transparent predictions with SHAP-based interpretability
-            - **Real-time Analytics**: Live correlation analysis using cloud-stored patient data
-
-            This integrated dashboard serves both end-users and healthcare professionals with 
-            a unified interface for insomnia analysis and monitoring.
-            """
-        )
+        st.markdown("""
+            <div style='background: rgba(255, 255, 255, 0.7);
+                        backdrop-filter: blur(10px);
+                        border: 1px solid rgba(139, 126, 200, 0.1);
+                        border-radius: 16px;
+                        padding: 2rem;
+                        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);'>
+                <h3 style='color: #1A2332; margin-top: 0; font-size: 1.75rem; font-weight: 700;'>What is SleepScope?</h3>
+                <p style='color: #4A5568; line-height: 1.8; font-size: 1.05rem; margin-bottom: 1rem;'>
+                    <strong style='color: #2D3748;'>SleepScope</strong> is a state-of-the-art explainable machine learning framework designed to revolutionize insomnia assessment and clinical decision support.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
+        
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        # Feature highlights in 2 columns
+        col_a, col_b = st.columns(2, gap="large")
+        
+        with col_a:
+            st.markdown("""
+                <div style='background: rgba(255, 255, 255, 0.6);
+                            backdrop-filter: blur(5px);
+                            border-left: 4px solid #8B7EC8;
+                            padding: 1.5rem;
+                            border-radius: 12px;
+                            margin-bottom: 1rem;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);'>
+                    <h4 style='color: #2D3748; margin-top: 0; font-size: 1.1rem; font-weight: 600;'>📋 Comprehensive Assessment</h4>
+                    <p style='color: #4A5568; line-height: 1.6; margin: 0; font-size: 0.95rem;'>
+                        Multi-dimensional evaluation combining ISI scores, PHQ-9 depression metrics, and optional polysomnography data
+                    </p>
+                </div>
+                
+                <div style='background: rgba(255, 255, 255, 0.6);
+                            backdrop-filter: blur(5px);
+                            border-left: 4px solid #4A90E2;
+                            padding: 1.5rem;
+                            border-radius: 12px;
+                            margin-bottom: 1rem;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);'>
+                    <h4 style='color: #2D3748; margin-top: 0; font-size: 1.1rem; font-weight: 600;'>🤖 ML-Driven Insights</h4>
+                    <p style='color: #4A5568; line-height: 1.6; margin: 0; font-size: 0.95rem;'>
+                        State-of-the-art machine learning models for accurate subtype classification and predictive analytics
+                    </p>
+                </div>
+                
+                <div style='background: rgba(255, 255, 255, 0.6);
+                            backdrop-filter: blur(5px);
+                            border-left: 4px solid #8B7EC8;
+                            padding: 1.5rem;
+                            border-radius: 12px;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);'>
+                    <h4 style='color: #2D3748; margin-top: 0; font-size: 1.1rem; font-weight: 600;'>🏥 Clinical Utility</h4>
+                    <p style='color: #4A5568; line-height: 1.6; margin: 0; font-size: 0.95rem;'>
+                        Designed for both patient self-assessment and professional clinical decision support
+                    </p>
+                </div>
+            """, unsafe_allow_html=True)
+        
+        with col_b:
+            st.markdown("""
+                <div style='background: rgba(255, 255, 255, 0.6);
+                            backdrop-filter: blur(5px);
+                            border-left: 4px solid #4A90E2;
+                            padding: 1.5rem;
+                            border-radius: 12px;
+                            margin-bottom: 1rem;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);'>
+                    <h4 style='color: #2D3748; margin-top: 0; font-size: 1.1rem; font-weight: 600;'>🔍 Explainable AI</h4>
+                    <p style='color: #4A5568; line-height: 1.6; margin: 0; font-size: 0.95rem;'>
+                        Transparent predictions with SHAP-based interpretability for clinical trust and validation
+                    </p>
+                </div>
+                
+                <div style='background: rgba(255, 255, 255, 0.6);
+                            backdrop-filter: blur(5px);
+                            border-left: 4px solid #8B7EC8;
+                            padding: 1.5rem;
+                            border-radius: 12px;
+                            margin-bottom: 1rem;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);'>
+                    <h4 style='color: #2D3748; margin-top: 0; font-size: 1.1rem; font-weight: 600;'>📈 Real-time Analytics</h4>
+                    <p style='color: #4A5568; line-height: 1.6; margin: 0; font-size: 0.95rem;'>
+                        Live correlation analysis using cloud-stored patient data with dynamic visualizations
+                    </p>
+                </div>
+                
+                <div style='background: rgba(255, 255, 255, 0.6);
+                            backdrop-filter: blur(5px);
+                            border-left: 4px solid #4A90E2;
+                            padding: 1.5rem;
+                            border-radius: 12px;
+                            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);'>
+                    <h4 style='color: #2D3748; margin-top: 0; font-size: 1.1rem; font-weight: 600;'>🎯 Unified Interface</h4>
+                    <p style='color: #4A5568; line-height: 1.6; margin: 0; font-size: 0.95rem;'>
+                        Integrated dashboard serving both end-users and healthcare professionals seamlessly
+                    </p>
+                </div>
+            """, unsafe_allow_html=True)
 
 # =====================================================
 #  TAB 2: USER DASHBOARD (with full ISI + PHQ-9 questionnaires)
@@ -1598,9 +1922,21 @@ with tabs[0]:
 with tabs[1]:
     st.markdown("<br>", unsafe_allow_html=True)
     st.markdown("""
-        <div style='text-align: center; margin-bottom: 2rem;'>
-            <h1 style='color: #2d3748; font-size: 2.2rem;'>User Assessment Dashboard</h1>
-            <p style='color: #718096; font-size: 1.1rem;'>Complete the ISI and PHQ-9 questionnaires for personalized analysis</p>
+        <div style='text-align: center; margin-bottom: 3rem; animation: fadeIn 0.6s ease-in;'>
+            <h1 style='color: #1A2332; 
+                       font-size: 2.25rem; 
+                       font-weight: 700;
+                       margin-bottom: 0.75rem;
+                       letter-spacing: -0.01em;'>
+                User Assessment Dashboard
+            </h1>
+            <p style='color: #718096; 
+                      font-size: 1.1rem; 
+                      line-height: 1.6;
+                      max-width: 700px;
+                      margin: 0 auto;'>
+                Complete the ISI and PHQ-9 questionnaires for personalized insomnia analysis and subtype classification
+            </p>
         </div>
     """, unsafe_allow_html=True)
 
@@ -1608,10 +1944,28 @@ with tabs[1]:
     # ISI QUESTIONS (0–4)
     # -------------------------
     st.markdown("""
-        <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                    padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;'>
-            <h2 style='color: white; margin: 0; font-size: 1.8rem;'>ISI – Insomnia Severity Index</h2>
-            <p style='color: rgba(255,255,255,0.9); margin: 0.5rem 0 0 0;'>Score Range: 0–28</p>
+        <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%); 
+                    padding: 2rem; 
+                    border-radius: 16px; 
+                    margin-bottom: 2rem;
+                    box-shadow: 0 4px 20px rgba(139, 126, 200, 0.2);'>
+            <div style='display: flex; align-items: center; justify-content: space-between;'>
+                <div>
+                    <h2 style='color: white; margin: 0; font-size: 1.75rem; font-weight: 700;'>
+                        💤 Insomnia Severity Index (ISI)
+                    </h2>
+                    <p style='color: rgba(255,255,255,0.95); margin: 0.75rem 0 0 0; font-size: 1rem;'>
+                        Answer each question based on your sleep patterns over the past two weeks
+                    </p>
+                </div>
+                <div style='background: rgba(255,255,255,0.25);
+                            backdrop-filter: blur(10px);
+                            padding: 0.75rem 1.5rem;
+                            border-radius: 12px;
+                            border: 1px solid rgba(255,255,255,0.3);'>
+                    <span style='color: white; font-size: 0.9rem; font-weight: 600;'>Score Range: 0–28</span>
+                </div>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
@@ -1640,21 +1994,54 @@ with tabs[1]:
     isi_total = sum(isi_responses)
 
     st.markdown(f"""
-        <div style='background: #e6f3ff; padding: 1rem; border-radius: 8px; 
-                    border-left: 4px solid #667eea; margin: 1rem 0;'>
-            <strong style='color: #2d3748; font-size: 1.2rem;'>Total ISI Score: {isi_total}/28</strong>
+        <div style='background: rgba(139, 126, 200, 0.1); 
+                    padding: 1.5rem; 
+                    border-radius: 12px; 
+                    border-left: 4px solid #8B7EC8; 
+                    margin: 1.5rem 0;
+                    box-shadow: 0 2px 12px rgba(139, 126, 200, 0.1);'>
+            <div style='display: flex; align-items: center; justify-content: space-between;'>
+                <strong style='color: #1A2332; font-size: 1.1rem; font-weight: 600;'>Total ISI Score</strong>
+                <span style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
+                             color: white;
+                             padding: 0.5rem 1.25rem;
+                             border-radius: 20px;
+                             font-size: 1.5rem;
+                             font-weight: 700;
+                             box-shadow: 0 2px 8px rgba(139, 126, 200, 0.3);'>
+                    {isi_total}/28
+                </span>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
     # -------------------------
     # PHQ-9 QUESTIONS (0–27)
     # -------------------------
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("""
-        <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                    padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;'>
-            <h2 style='color: white; margin: 0; font-size: 1.8rem;'>PHQ-9 – Depression Assessment</h2>
-            <p style='color: rgba(255,255,255,0.9); margin: 0.5rem 0 0 0;'>Score Range: 0–27</p>
+        <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%); 
+                    padding: 2rem; 
+                    border-radius: 16px; 
+                    margin-bottom: 2rem;
+                    box-shadow: 0 4px 20px rgba(139, 126, 200, 0.2);'>
+            <div style='display: flex; align-items: center; justify-content: space-between;'>
+                <div>
+                    <h2 style='color: white; margin: 0; font-size: 1.75rem; font-weight: 700;'>
+                        🧠 Patient Health Questionnaire (PHQ-9)
+                    </h2>
+                    <p style='color: rgba(255,255,255,0.95); margin: 0.75rem 0 0 0; font-size: 1rem;'>
+                        Over the last two weeks, how often have you been bothered by the following problems?
+                    </p>
+                </div>
+                <div style='background: rgba(255,255,255,0.25);
+                            backdrop-filter: blur(10px);
+                            padding: 0.75rem 1.5rem;
+                            border-radius: 12px;
+                            border: 1px solid rgba(255,255,255,0.3);'>
+                    <span style='color: white; font-size: 0.9rem; font-weight: 600;'>Score Range: 0–27</span>
+                </div>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
@@ -1691,21 +2078,47 @@ with tabs[1]:
     phq9_total = sum(phq_responses)
 
     st.markdown(f"""
-        <div style='background: #e6f3ff; padding: 1rem; border-radius: 8px; 
-                    border-left: 4px solid #667eea; margin: 1rem 0;'>
-            <strong style='color: #2d3748; font-size: 1.2rem;'>Total PHQ-9 Score: {phq9_total}/27</strong>
+        <div style='background: rgba(139, 126, 200, 0.1); 
+                    padding: 1.5rem; 
+                    border-radius: 12px; 
+                    border-left: 4px solid #4A90E2; 
+                    margin: 1.5rem 0;
+                    box-shadow: 0 2px 12px rgba(74, 144, 226, 0.1);'>
+            <div style='display: flex; align-items: center; justify-content: space-between;'>
+                <strong style='color: #1A2332; font-size: 1.1rem; font-weight: 600;'>Total PHQ-9 Score</strong>
+                <span style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
+                             color: white;
+                             padding: 0.5rem 1.25rem;
+                             border-radius: 20px;
+                             font-size: 1.5rem;
+                             font-weight: 700;
+                             box-shadow: 0 2px 8px rgba(74, 144, 226, 0.3);'>
+                    {phq9_total}/27
+                </span>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
     # ---------------------------------------------------------
     # Subtype Feature Questions (clean, user-friendly inputs)
     # ---------------------------------------------------------
-    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("<br><br>", unsafe_allow_html=True)
     st.markdown("""
-        <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                    padding: 1.5rem; border-radius: 12px; margin-bottom: 2rem;'>
-            <h2 style='color: white; margin: 0; font-size: 1.8rem;'>Sleep & Lifestyle Assessment</h2>
-            <p style='color: rgba(255,255,255,0.9); margin: 0.5rem 0 0 0;'>For subtype classification</p>
+        <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%); 
+                    padding: 2rem; 
+                    border-radius: 16px; 
+                    margin-bottom: 2rem;
+                    box-shadow: 0 4px 20px rgba(139, 126, 200, 0.2);'>
+            <div style='display: flex; align-items: center; justify-content: space-between;'>
+                <div>
+                    <h2 style='color: white; margin: 0; font-size: 1.75rem; font-weight: 700;'>
+                        🌙 Sleep & Lifestyle Assessment
+                    </h2>
+                    <p style='color: rgba(255,255,255,0.95); margin: 0.75rem 0 0 0; font-size: 1rem;'>
+                        Additional information for accurate subtype classification
+                    </p>
+                </div>
+            </div>
         </div>
     """, unsafe_allow_html=True)
 
@@ -1825,19 +2238,56 @@ with tabs[1]:
         # ISI Severity Prediction
         # -------------------------------
         severity_label = get_isi_severity_label(isi_total)
+        
+        # Determine severity color and emoji based on score
+        if isi_total <= 7:
+            severity_color = "#48BB78"  # Green
+            severity_emoji = "✅"
+            severity_bg = "rgba(72, 187, 120, 0.1)"
+        elif isi_total <= 14:
+            severity_color = "#4299E1"  # Blue
+            severity_emoji = "ℹ️"
+            severity_bg = "rgba(66, 153, 225, 0.1)"
+        elif isi_total <= 21:
+            severity_color = "#ED8936"  # Orange
+            severity_emoji = "⚠️"
+            severity_bg = "rgba(237, 137, 54, 0.1)"
+        else:
+            severity_color = "#F56565"  # Red
+            severity_emoji = "🚨"
+            severity_bg = "rgba(245, 101, 101, 0.1)"
 
-        colA, colB = st.columns(2)
+        colA, colB = st.columns(2, gap="large")
 
         with colA:
-            st.markdown("""
-                <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                            padding: 2rem; border-radius: 12px; text-align: center; color: white;
-                            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);'>
-                    <h3 style='color: white; margin: 0 0 1rem 0;'>Insomnia Severity</h3>
-                    <h2 style='color: white; font-size: 1.5rem; margin: 0;'>{}</h2>
-                    <p style='color: rgba(255,255,255,0.9); margin: 1rem 0 0 0;'>ISI Score: {}</p>
+            st.markdown(f"""
+                <div style='background: {severity_bg}; 
+                            backdrop-filter: blur(10px);
+                            padding: 2.5rem; 
+                            border-radius: 16px; 
+                            text-align: center;
+                            border: 2px solid {severity_color}40;
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                            transition: all 0.3s ease;'>
+                    <div style='font-size: 3rem; margin-bottom: 1rem;'>{severity_emoji}</div>
+                    <h3 style='color: #1A2332; margin: 0 0 1rem 0; font-size: 1.3rem; font-weight: 700;'>
+                        Insomnia Severity
+                    </h3>
+                    <div style='background: {severity_color};
+                                color: white;
+                                padding: 1rem 1.5rem;
+                                border-radius: 12px;
+                                margin: 1rem 0;
+                                font-size: 1.25rem;
+                                font-weight: 600;
+                                box-shadow: 0 4px 12px {severity_color}40;'>
+                        {severity_label}
+                    </div>
+                    <p style='color: #4A5568; margin: 1rem 0 0 0; font-size: 1rem;'>
+                        ISI Score: <strong style='color: {severity_color};'>{isi_total}/28</strong>
+                    </p>
                 </div>
-            """.format(severity_label, isi_total), unsafe_allow_html=True)
+            """, unsafe_allow_html=True)
 
         # -------------------------------
         # Subtype Prediction (uses subtype_inputs)
@@ -1857,12 +2307,31 @@ with tabs[1]:
             raw_pred, pretty_label = predict_subtype(ordered_features)
 
             st.markdown(f"""
-                <div style='background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-                            padding: 2rem; border-radius: 12px; text-align: center; color: white;
-                            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);'>
-                    <h3 style='color: white; margin: 0 0 1rem 0;'>Insomnia Subtype</h3>
-                    <h2 style='color: white; font-size: 1.5rem; margin: 0;'>{pretty_label}</h2>
-                    <p style='color: rgba(255,255,255,0.9); margin: 1rem 0 0 0;'>Model Output: {raw_pred}</p>
+                <div style='background: linear-gradient(135deg, rgba(139, 126, 200, 0.15) 0%, rgba(74, 144, 226, 0.15) 100%); 
+                            backdrop-filter: blur(10px);
+                            padding: 2.5rem; 
+                            border-radius: 16px; 
+                            text-align: center;
+                            border: 2px solid rgba(139, 126, 200, 0.3);
+                            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                            transition: all 0.3s ease;'>
+                    <div style='font-size: 3rem; margin-bottom: 1rem;'>🧬</div>
+                    <h3 style='color: #1A2332; margin: 0 0 1rem 0; font-size: 1.3rem; font-weight: 700;'>
+                        Insomnia Subtype
+                    </h3>
+                    <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
+                                color: white;
+                                padding: 1rem 1.5rem;
+                                border-radius: 12px;
+                                margin: 1rem 0;
+                                font-size: 1.25rem;
+                                font-weight: 600;
+                                box-shadow: 0 4px 12px rgba(139, 126, 200, 0.4);'>
+                        {pretty_label}
+                    </div>
+                    <p style='color: #4A5568; margin: 1rem 0 0 0; font-size: 0.95rem;'>
+                        Model Classification: <strong style='color: #8B7EC8;'>{raw_pred}</strong>
+                    </p>
                 </div>
             """, unsafe_allow_html=True)
 
@@ -1871,28 +2340,91 @@ with tabs[1]:
 #  TAB 3: CLINICIAN (PSG + HYPNOGRAM UPLOAD)
 # =====================================================
 with tabs[2]:
-    st.subheader("Clinician View – PSG + Hypnogram Analysis")
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("""
+        <div style='text-align: center; margin-bottom: 3rem; animation: fadeIn 0.6s ease-in;'>
+            <h1 style='color: #1A2332; 
+                       font-size: 2.25rem; 
+                       font-weight: 700;
+                       margin-bottom: 0.75rem;
+                       letter-spacing: -0.01em;'>
+                Clinician Dashboard – PSG Analysis
+            </h1>
+            <p style='color: #718096; 
+                      font-size: 1.1rem; 
+                      line-height: 1.6;
+                      max-width: 700px;
+                      margin: 0 auto;'>
+                Upload polysomnography data for advanced ML-based analysis with SHAP explainability
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+        <div style='background: rgba(139, 126, 200, 0.1);
+                    backdrop-filter: blur(5px);
+                    border-left: 4px solid #8B7EC8;
+                    padding: 1.25rem 1.5rem;
+                    border-radius: 12px;
+                    margin-bottom: 2rem;'>
+            <p style='color: #2D3748; margin: 0; font-size: 1rem; line-height: 1.6;'>
+                <strong>📁 Required Files:</strong> Please upload both the PSG file and its corresponding Hypnogram in EDF format
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
 
-    st.write("Upload both the PSG file and its corresponding Hypnogram (.edf) file.")
-
-    col_psg, col_hyp = st.columns(2)
+    col_psg, col_hyp = st.columns(2, gap="large")
 
     with col_psg:
+        st.markdown("""
+            <div style='text-align: center; margin-bottom: 1rem;'>
+                <h4 style='color: #2D3748; font-size: 1.1rem; font-weight: 600; margin: 0;'>
+                    📊 PSG / EDF File
+                </h4>
+            </div>
+        """, unsafe_allow_html=True)
         uploaded_psg = st.file_uploader(
-            "Upload PSG / EDF File",
+            "Upload PSG File",
             type=["edf", "EDF"],
-            key="psg_file"
+            key="psg_file",
+            label_visibility="collapsed"
         )
 
     with col_hyp:
+        st.markdown("""
+            <div style='text-align: center; margin-bottom: 1rem;'>
+                <h4 style='color: #2D3748; font-size: 1.1rem; font-weight: 600; margin: 0;'>
+                    📈 Hypnogram / EDF File
+                </h4>
+            </div>
+        """, unsafe_allow_html=True)
         uploaded_hyp = st.file_uploader(
-            "Upload Hypnogram / EDF File",
+            "Upload Hypnogram File",
             type=["edf", "EDF"],
-            key="hyp_file"
+            key="hyp_file",
+            label_visibility="collapsed"
         )
 
     if uploaded_psg and uploaded_hyp:
-        st.success(f"Files uploaded:\n- PSG: {uploaded_psg.name}\n- Hypnogram: {uploaded_hyp.name}")
+        st.markdown(f"""
+            <div style='background: rgba(72, 187, 120, 0.1);
+                        backdrop-filter: blur(5px);
+                        border-left: 4px solid #48BB78;
+                        padding: 1.5rem;
+                        border-radius: 12px;
+                        margin: 1.5rem 0;'>
+                <div style='display: flex; align-items: center; gap: 0.75rem;'>
+                    <span style='font-size: 1.5rem;'>✅</span>
+                    <div>
+                        <strong style='color: #1A2332; font-size: 1.1rem;'>Files Successfully Uploaded</strong>
+                        <p style='color: #4A5568; margin: 0.5rem 0 0 0; font-size: 0.95rem;'>
+                            • PSG: <strong>{uploaded_psg.name}</strong><br>
+                            • Hypnogram: <strong>{uploaded_hyp.name}</strong>
+                        </p>
+                    </div>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
 
         # Write to temp files
         with tempfile.NamedTemporaryFile(delete=False, suffix=".edf") as tmp_psg:
@@ -1903,16 +2435,61 @@ with tabs[2]:
             tmp_hyp.write(uploaded_hyp.read())
             hyp_path = tmp_hyp.name
 
-        st.info("Extracting PSG features…")
+        st.markdown("""
+            <div style='background: rgba(74, 144, 226, 0.1);
+                        backdrop-filter: blur(5px);
+                        border-left: 4px solid #4A90E2;
+                        padding: 1.25rem 1.5rem;
+                        border-radius: 12px;
+                        margin: 1.5rem 0;'>
+                <p style='color: #2D3748; margin: 0; font-size: 1rem;'>
+                    <strong>⏳ Processing:</strong> Extracting PSG features from uploaded files...
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
 
         try:
             # Extract features (your original function)
             psg_features = extract_psg_features(psg_path, hyp_path)
 
             if psg_features is None:
-                st.error("Feature extraction returned no values.")
+                st.markdown("""
+                    <div style='background: rgba(245, 101, 101, 0.1);
+                                backdrop-filter: blur(5px);
+                                border-left: 4px solid #F56565;
+                                padding: 1.5rem;
+                                border-radius: 12px;
+                                margin: 1.5rem 0;'>
+                        <div style='display: flex; align-items: center; gap: 0.75rem;'>
+                            <span style='font-size: 1.5rem;'>❌</span>
+                            <div>
+                                <strong style='color: #1A2332; font-size: 1.1rem;'>Feature Extraction Failed</strong>
+                                <p style='color: #4A5568; margin: 0.5rem 0 0 0; font-size: 0.95rem;'>
+                                    No values were returned from the feature extraction process.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
             else:
-                st.success("PSG features extracted successfully!")
+                st.markdown("""
+                    <div style='background: rgba(72, 187, 120, 0.1);
+                                backdrop-filter: blur(5px);
+                                border-left: 4px solid #48BB78;
+                                padding: 1.5rem;
+                                border-radius: 12px;
+                                margin: 1.5rem 0;'>
+                        <div style='display: flex; align-items: center; gap: 0.75rem;'>
+                            <span style='font-size: 1.5rem;'>✅</span>
+                            <div>
+                                <strong style='color: #1A2332; font-size: 1.1rem;'>Feature Extraction Complete</strong>
+                                <p style='color: #4A5568; margin: 0.5rem 0 0 0; font-size: 0.95rem;'>
+                                    PSG features successfully extracted and ready for analysis
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                """, unsafe_allow_html=True)
                 
 
                 # Convert dict → DataFrame row-like
@@ -1949,13 +2526,57 @@ with tabs[2]:
                 prediction = model_psg.predict(feature_vector)[0]
                 prediction = max(0.0, prediction)
 
-                st.subheader("PSG Model Prediction")
-                st.success(f"Predicted Output: **{prediction:.3f}**")
+                st.markdown("<br>", unsafe_allow_html=True)
+                st.markdown("""
+                    <div style='text-align: center; margin: 2rem 0 1.5rem 0;'>
+                        <h2 style='color: #1A2332; font-size: 1.75rem; font-weight: 700; margin: 0;'>
+                            🔬 PSG Model Prediction
+                        </h2>
+                    </div>
+                """, unsafe_allow_html=True)
+                
+                st.markdown(f"""
+                    <div style='background: linear-gradient(135deg, rgba(139, 126, 200, 0.15) 0%, rgba(74, 144, 226, 0.15) 100%);
+                                backdrop-filter: blur(10px);
+                                padding: 2.5rem;
+                                border-radius: 16px;
+                                text-align: center;
+                                border: 2px solid rgba(139, 126, 200, 0.3);
+                                box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                                margin: 1rem 0 2rem 0;'>
+                        <h3 style='color: #2D3748; margin: 0 0 1.5rem 0; font-size: 1.2rem; font-weight: 600;'>
+                            Predicted Insomnia Severity Score
+                        </h3>
+                        <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
+                                    color: white;
+                                    padding: 1.5rem 2rem;
+                                    border-radius: 16px;
+                                    font-size: 3rem;
+                                    font-weight: 700;
+                                    box-shadow: 0 6px 20px rgba(139, 126, 200, 0.4);
+                                    display: inline-block;
+                                    min-width: 200px;'>
+                            {prediction:.2f}
+                        </div>
+                        <p style='color: #4A5568; margin: 1.5rem 0 0 0; font-size: 1rem;'>
+                            Based on extracted PSG features and ML model analysis
+                        </p>
+                    </div>
+                """, unsafe_allow_html=True)
 
                 # -----------------------
                 # SHAP XAI
                 # -----------------------
-                st.markdown("### Explainable AI Interpretation")
+                st.markdown("""
+                    <div style='text-align: center; margin: 3rem 0 2rem 0;'>
+                        <h2 style='color: #1A2332; font-size: 1.75rem; font-weight: 700; margin: 0;'>
+                            🔍 Explainable AI Interpretation
+                        </h2>
+                        <p style='color: #718096; margin: 0.75rem 0 0 0; font-size: 1rem;'>
+                            SHAP-based feature importance and contribution analysis
+                        </p>
+                    </div>
+                """, unsafe_allow_html=True)
 
                 try:
                     explainer = shap.TreeExplainer(model_psg)
@@ -2100,44 +2721,169 @@ with tabs[2]:
 #  TAB 4: CORRELATION EXPLORER
 # =====================================================
 with tabs[3]:
-    st.subheader("Correlation Explorer – ISI vs PHQ-9")
-
-    st.write(
-        """
-        This section computes and visualizes the **correlation between insomnia severity**
-        and **depression symptoms** using ISI and PHQ-9 scores stored in Firestore.
-        """
-    )
+    st.markdown("<br>", unsafe_allow_html=True)
+    st.markdown("""
+        <div style='text-align: center; margin-bottom: 3rem; animation: fadeIn 0.6s ease-in;'>
+            <h1 style='color: #1A2332; 
+                       font-size: 2.25rem; 
+                       font-weight: 700;
+                       margin-bottom: 0.75rem;
+                       letter-spacing: -0.01em;'>
+                Correlation Explorer
+            </h1>
+            <p style='color: #718096; 
+                      font-size: 1.1rem; 
+                      line-height: 1.6;
+                      max-width: 700px;
+                      margin: 0 auto;'>
+                Analyze the relationship between insomnia severity and depression symptoms across patient data
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
+    
+    st.markdown("""
+        <div style='background: rgba(139, 126, 200, 0.1);
+                    backdrop-filter: blur(5px);
+                    border-left: 4px solid #8B7EC8;
+                    padding: 1.25rem 1.5rem;
+                    border-radius: 12px;
+                    margin-bottom: 2rem;'>
+            <p style='color: #2D3748; margin: 0; font-size: 1rem; line-height: 1.6;'>
+                <strong>📊 Data Analysis:</strong> Real-time correlation between ISI and PHQ-9 scores from cloud-stored patient sessions
+            </p>
+        </div>
+    """, unsafe_allow_html=True)
 
     df_corr = fetch_isi_phq9_data()
 
     if df_corr.empty:
-        st.warning(
-            "No data found in Firestore or unable to connect. "
-            "Ensure the collection name and credentials are correct."
-        )
+        st.markdown("""
+            <div style='background: rgba(237, 137, 54, 0.1);
+                        backdrop-filter: blur(5px);
+                        border-left: 4px solid #ED8936;
+                        padding: 2rem;
+                        border-radius: 12px;
+                        text-align: center;
+                        margin: 2rem 0;'>
+                <div style='font-size: 3rem; margin-bottom: 1rem;'>📭</div>
+                <h3 style='color: #1A2332; margin: 0 0 0.75rem 0; font-size: 1.3rem; font-weight: 600;'>
+                    No Data Available
+                </h3>
+                <p style='color: #4A5568; margin: 0; font-size: 1rem; line-height: 1.6;'>
+                    No patient session data found in Firestore. Complete assessments in the User Dashboard to populate this analysis.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
     else:
         # st.markdown("#### Sample Data")
         # st.dataframe(df_corr.head())
 
         corr_val = df_corr[["ISI", "PHQ9"]].corr().iloc[0, 1]
-        st.metric(
-            label="Pearson Correlation (ISI vs PHQ-9)",
-            value=f"{corr_val:.3f}",
-        )
+        
+        # Determine correlation strength
+        if abs(corr_val) >= 0.7:
+            corr_strength = "Strong"
+            corr_color = "#F56565"
+            corr_emoji = "🔴"
+        elif abs(corr_val) >= 0.4:
+            corr_strength = "Moderate"
+            corr_color = "#ED8936"
+            corr_emoji = "🟠"
+        else:
+            corr_strength = "Weak"
+            corr_color = "#4299E1"
+            corr_emoji = "🔵"
+        
+        # Correlation metric card
+        st.markdown(f"""
+            <div style='background: linear-gradient(135deg, rgba(139, 126, 200, 0.15) 0%, rgba(74, 144, 226, 0.15) 100%);
+                        backdrop-filter: blur(10px);
+                        padding: 2.5rem;
+                        border-radius: 16px;
+                        text-align: center;
+                        border: 2px solid rgba(139, 126, 200, 0.3);
+                        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+                        margin: 2rem 0;'>
+                <h3 style='color: #2D3748; margin: 0 0 1.5rem 0; font-size: 1.2rem; font-weight: 600;'>
+                    📈 Pearson Correlation Coefficient
+                </h3>
+                <div style='display: flex; align-items: center; justify-content: center; gap: 2rem; flex-wrap: wrap;'>
+                    <div>
+                        <div style='background: linear-gradient(135deg, #8B7EC8 0%, #4A90E2 100%);
+                                    color: white;
+                                    padding: 1.5rem 2rem;
+                                    border-radius: 16px;
+                                    font-size: 3rem;
+                                    font-weight: 700;
+                                    box-shadow: 0 6px 20px rgba(139, 126, 200, 0.4);
+                                    min-width: 150px;'>
+                            {corr_val:.3f}
+                        </div>
+                        <p style='color: #4A5568; margin: 1rem 0 0 0; font-size: 0.95rem;'>
+                            ISI vs PHQ-9
+                        </p>
+                    </div>
+                    <div style='text-align: left;'>
+                        <div style='background: {corr_color}20;
+                                    border: 2px solid {corr_color};
+                                    color: {corr_color};
+                                    padding: 0.75rem 1.5rem;
+                                    border-radius: 12px;
+                                    font-size: 1.1rem;
+                                    font-weight: 600;
+                                    margin-bottom: 0.5rem;'>
+                            {corr_emoji} {corr_strength} Correlation
+                        </div>
+                        <p style='color: #4A5568; margin: 0; font-size: 0.9rem;'>
+                            Based on {len(df_corr)} patient sessions
+                        </p>
+                    </div>
+                </div>
+            </div>
+        """, unsafe_allow_html=True)
 
-        st.markdown("#### Scatter Plot")
-        st.write(
-            "Each point represents a **session** with both ISI and PHQ-9 scores."
-        )
+        st.markdown("<br>", unsafe_allow_html=True)
+        
+        st.markdown("""
+            <div style='text-align: center; margin: 2rem 0 1.5rem 0;'>
+                <h2 style='color: #1A2332; font-size: 1.5rem; font-weight: 700; margin: 0;'>
+                    Scatter Plot Analysis
+                </h2>
+                <p style='color: #718096; margin: 0.75rem 0 0 0; font-size: 1rem;'>
+                    Each point represents a patient session with both ISI and PHQ-9 scores
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
+        
+        # Scatter chart with styling container
+        st.markdown("""
+            <div style='background: rgba(255, 255, 255, 0.8);
+                        backdrop-filter: blur(10px);
+                        border-radius: 16px;
+                        padding: 2rem;
+                        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+                        border: 1px solid rgba(139, 126, 200, 0.1);'>
+        """, unsafe_allow_html=True)
+        
         st.scatter_chart(df_corr, x="ISI", y="PHQ9")
+        
+        st.markdown("</div>", unsafe_allow_html=True)
 
-        st.caption(
-            """
-            A higher positive correlation suggests that higher insomnia severity
-            is associated with higher depression scores in the observed population.
-            """
-        )
+        st.markdown(f"""
+            <div style='background: rgba(66, 153, 225, 0.1);
+                        backdrop-filter: blur(5px);
+                        border-left: 4px solid #4299E1;
+                        padding: 1.25rem 1.5rem;
+                        border-radius: 12px;
+                        margin: 1.5rem 0;'>
+                <p style='color: #2D3748; margin: 0; font-size: 0.95rem; line-height: 1.7;'>
+                    <strong>💡 Insight:</strong> A correlation coefficient of <strong>{corr_val:.3f}</strong> suggests that 
+                    {'higher insomnia severity is moderately to strongly associated with higher depression scores' if corr_val > 0.4 
+                     else 'there is a relationship between insomnia severity and depression symptoms'} 
+                    in the observed patient population.
+                </p>
+            </div>
+        """, unsafe_allow_html=True)
 
 
 # =====================================================
